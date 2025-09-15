@@ -28,6 +28,7 @@ export { AppMetadata, AppPlatform } from './app-metadata';
 export { ProjectManagement } from './project-management';
 export { AndroidApp, AndroidAppMetadata, ShaCertificate } from './android-app';
 export { IosApp, IosAppMetadata } from './ios-app';
+export { WebApp, WebAppMetadata } from './web-app';
 
 /**
  * Gets the {@link ProjectManagement} service for the default app or a given app.

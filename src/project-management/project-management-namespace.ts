@@ -19,7 +19,11 @@ import {
   AppMetadata as TAppMetadata,
   AppPlatform as TAppPlatform,
 } from './app-metadata';
-import { ProjectManagement as TProjectManagement } from './project-management';
+import { 
+  ProjectManagement as TProjectManagement, 
+  ProjectState as TProjectState,
+  ProjectMetadata as TProjectMetadata,
+} from './project-management';
 import {
   AndroidApp as TAndroidApp,
   AndroidAppMetadata as TAndroidAppMetadata,
@@ -29,6 +33,10 @@ import {
   IosApp as TIosApp,
   IosAppMetadata as TIosAppMetadata,
 } from './ios-app';
+import { 
+  WebApp as TWebApp, 
+  WebAppMetadata as TWebAppMetadata
+} from './web-app';
 
 /**
   * Gets the {@link firebase-admin.project-management#ProjectManagement} service for the
@@ -71,9 +79,19 @@ export namespace projectManagement {
   export type AppPlatform = TAppPlatform;
 
   /**
+   * Type alias to {@link firebase-admin.project-management#ProjectState}.
+   */
+  export type ProjectState = TProjectState;
+
+  /**
    * Type alias to {@link firebase-admin.project-management#ProjectManagement}.
    */
   export type ProjectManagement = TProjectManagement;
+
+  /**
+   * Type alias to {@link firebase-admin.project-management#ProjectMetadata}.
+   */
+  export type ProjectMetadata = TProjectMetadata;
 
   /**
    * Type alias to {@link firebase-admin.project-management#IosApp}.
@@ -99,4 +117,14 @@ export namespace projectManagement {
    * Type alias to {@link firebase-admin.project-management#ShaCertificate}.
    */
   export type ShaCertificate = TShaCertificate;
+
+  /**
+   * Type alias to {@link firebase-admin.project-management#WebApp}.
+   */
+  export type WebApp = TWebApp;
+
+  /**
+   * Type alias to {@link firebase-admin.project-management#WebAppMetadata}.
+   */
+  export type WebAppMetadata = TWebAppMetadata;
 }

@@ -32,6 +32,11 @@ export enum AppPlatform {
    * The Firebase App is associated with Android.
    */
   ANDROID = 'ANDROID',
+
+  /**
+   * The Firebase App is associated with the web.
+   */
+  WEB = 'WEB',
 }
 
 /**

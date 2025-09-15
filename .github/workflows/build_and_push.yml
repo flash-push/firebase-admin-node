@@ -1,0 +1,48 @@
+name: Build and Push
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout source for publishing
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit and push build files
+        run: |
+          mkdir ../build-artifacts
+
+          mv lib package.json package-lock.json ../build-artifacts/
+
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+          git checkout --orphan build
+
+          git rm -rf .
+          git clean -fdx
+
+          mv ../build-artifacts/* .
+
+          git add .
+
+          git commit -m "Build for release ${{ github.event.release.tag_name }}"
+
+          git push -f origin build

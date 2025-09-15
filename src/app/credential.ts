@@ -16,9 +16,9 @@
  */
 
 export interface ServiceAccount {
-  projectId?: string;
-  clientEmail?: string;
-  privateKey?: string;
+  project_id?: string;
+  client_email?: string;
+  private_key?: string;
 }
 
 /**

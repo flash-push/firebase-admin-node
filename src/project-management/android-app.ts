@@ -107,6 +107,17 @@ export class AndroidApp {
   }
 
   /**
+   * Sets the canonical package name of the Android app.
+   * 
+   * @param newPackageName - The new package name to set.
+   * 
+   * @returns A promise that resolves when the package name has been set.
+   */
+  public setPackageName(newPackageName: string): Promise<void> {
+    return this.requestHandler.setField(this.resourceName, 'package_name', newPackageName);
+  }
+
+  /**
    * Gets the list of SHA certificates associated with this Android app in Firebase.
    *
    * @returns The list of SHA-1 and SHA-256 certificates associated with this Android app in
